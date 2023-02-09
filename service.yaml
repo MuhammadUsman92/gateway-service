@@ -6,6 +6,6 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 9393
+      targetPort: 8080
   selector:
     app: cloud-gateway-app
