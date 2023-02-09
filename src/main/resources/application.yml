@@ -1,0 +1,24 @@
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 100
+      permittedNumberOfCallsInHalfOpenState: 10
+      waitDurationInOpenState: 10000
+      failureRateThreshold: 60
+      eventConsumerBufferSize: 10
+      registerHealthIndicator: true
+resilience4j.bulkhead:
+  configs:
+    default:
+      maxConcurrentCalls: 5
+resilience4j.thread-pool-bulkhead:
+  configs:
+    default:
+      maxThreadPoolSize: 5
+      coreThreadPoolSize: 1
+      queueCapacity: 5
+resilience4j.timelimiter:
+  configs:
+    default:
+      timeoutDuration: 30s
+      cancelRunningFuture: true
