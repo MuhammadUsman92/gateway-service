@@ -70,6 +70,21 @@
 				<artifactId>kubernetes-maven-plugin</artifactId>
 				<version>1.10.1</version>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.muhammadusman92.gatewayservice.GatewayServiceApplication</mainClass>
+				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

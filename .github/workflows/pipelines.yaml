@@ -9,8 +9,8 @@ env:
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
   GKE_CLUSTER: fyp-cluster    # TODO: update to cluster name
   GKE_ZONE: us-south1-a   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: gke-gateway-service # TODO: update to deployment name
-  IMAGE: fyp-cluster-image
+  DEPLOYMENT_NAME: cloud-gateway-app # TODO: update to deployment name
+  IMAGE: cloud-gateway-app-image
   TAG: 1.0.0
 jobs:
   setup-build-publish-deploy:
