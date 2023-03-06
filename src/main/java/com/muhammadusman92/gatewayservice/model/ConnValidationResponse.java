@@ -13,6 +13,7 @@ public class ConnValidationResponse {
     private String status;
     private boolean isAuthenticated;
     private String methodType;
-    private String username;
+    private String userName;
+    private String userEmail;
     private String token;
 }

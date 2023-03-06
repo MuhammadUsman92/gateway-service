@@ -64,7 +64,8 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
                         .header("Authorization", bearerToken)
                         .retrieve().bodyToMono(ConnValidationResponse.class)
                         .map(response -> {
-                            exchange.getRequest().mutate().header("username", response.getUsername());
+                            exchange.getRequest().mutate().header("userEmail", response.getUserEmail());
+                            exchange.getRequest().mutate().header("userName", response.getUserName());
                             exchange.getRequest().mutate().header("auth-token", response.getToken());
                             return exchange;
                         }).flatMap(chain::filter).onErrorResume(error -> {
