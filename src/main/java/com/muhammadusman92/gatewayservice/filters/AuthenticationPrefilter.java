@@ -52,7 +52,6 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
-//            ServerHttpResponse response = exchange.getResponse();
             log.info("**************************************************************************");
             log.info("URL is - " + request.getURI().getPath());
             String bearerToken = request.getHeaders().getFirst("Authorization");
