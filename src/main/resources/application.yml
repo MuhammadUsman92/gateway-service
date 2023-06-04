@@ -22,3 +22,14 @@ resilience4j.timelimiter:
     default:
       timeoutDuration: 30s
       cancelRunningFuture: true
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "http://localhost:3000"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+

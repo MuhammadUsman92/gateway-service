@@ -52,16 +52,16 @@ public class GatewayServiceApplication {
 												new AuthenticationPrefilter.Config()))
 						)
 						.uri("lb://AUTHENTICATION-SERVICE"))
-				.route("user-service-route", r -> r.path("/user-service/**")
+				.route("health-service-route", r -> r.path("/health-service/**")
 						.filters(f ->
-								f.rewritePath("/user-service(?<segment>/?.*)", "$\\{segment}")
+								f.rewritePath("/health-service(?<segment>/?.*)", "$\\{segment}")
 										.filter(authFilter.apply(
 												new AuthenticationPrefilter.Config()))
 										.circuitBreaker(config -> config
 												.setName("CircuitBreaker")
-												.setFallbackUri("/userServiceFallBack"))
+												.setFallbackUri("/healthServiceFallBack"))
 						)
-						.uri("lb://USER-SERVICE"))
+						.uri("lb://HEALTH-SERVICE"))
 				.route("near-by-service", r -> r.path("/near-by-service/**")
 						.filters(f ->
 								f.rewritePath("/near-by-service(?<segment>/?.*)", "$\\{segment}")
@@ -69,19 +69,19 @@ public class GatewayServiceApplication {
 												new AuthenticationPrefilter.Config()))
 										.circuitBreaker(config -> config
 												.setName("CircuitBreaker")
-												.setFallbackUri("/storeServiceFallBack"))
+												.setFallbackUri("/nearbyServiceFallBack"))
 						)
 						.uri("lb://NEARBY-SERVICE"))
-				.route("account-service-route", r -> r.path("/account-service/**")
+				.route("criminal-service-route", r -> r.path("/criminal-service/**")
 						.filters(f ->
-								f.rewritePath("/account-service(?<segment>/?.*)", "$\\{segment}")
+								f.rewritePath("/criminal-service(?<segment>/?.*)", "$\\{segment}")
 										.filter(authFilter.apply(
 												new AuthenticationPrefilter.Config()))
 										.circuitBreaker(config -> config
 												.setName("CircuitBreaker")
-												.setFallbackUri("/accountServiceFallBack"))
+												.setFallbackUri("/criminalServiceFallBack"))
 						)
-						.uri("lb://ACCOUNT-SERVICE"))
+						.uri("lb://CRIMINAL-SERVICE"))
 				.build();
 	}
 	@Value("${spring.gateway.excludedURLsNew}")
