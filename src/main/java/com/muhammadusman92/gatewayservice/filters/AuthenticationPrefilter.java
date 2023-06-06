@@ -66,6 +66,7 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
                             exchange.getRequest().mutate().header("userEmail", response.getUserEmail());
                             exchange.getRequest().mutate().header("userName", response.getUserName());
                             exchange.getRequest().mutate().header("auth-token", response.getToken());
+                            exchange.getRequest().mutate().header("authorities", response.getAuthorities().toString());
                             return exchange;
                         }).flatMap(chain::filter).onErrorResume(error -> {
                             HttpStatus errorCode = null;

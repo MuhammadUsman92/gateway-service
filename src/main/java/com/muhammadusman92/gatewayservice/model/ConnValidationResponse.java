@@ -16,4 +16,5 @@ public class ConnValidationResponse {
     private String userName;
     private String userEmail;
     private String token;
+    private List<String> authorities;
 }
