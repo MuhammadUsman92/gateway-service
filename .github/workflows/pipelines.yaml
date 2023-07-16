@@ -7,8 +7,8 @@ on:
 
 env:
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
-  GKE_CLUSTER: fyp-cluster    # TODO: update to cluster name
-  GKE_ZONE: us-south1-a   # TODO: update to cluster zone
+  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
+  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
   DEPLOYMENT_NAME: cloud-gateway-app # TODO: update to deployment name
   IMAGE: cloud-gateway-app-image
   TAG: 1.0.0
@@ -46,7 +46,7 @@ jobs:
         uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
         with:
           cluster_name: "fyp-cluster"
-          location: "us-south1-a"
+          location: "us-central1-c"
           credentials: ${{ secrets.GKE_SA_KEY }}
 
       - name: Build Docker Image
