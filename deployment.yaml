@@ -9,6 +9,10 @@ spec:
   selector:
     matchLabels:
       app: cloud-gateway-app
+  volumes:
+        - name: config-volume
+          configMap:
+            name: my-app-config
   template:
     metadata:
       labels:
@@ -19,7 +23,4 @@ spec:
           image: gcr.io/PROJECT_ID/IMAGE:TAG
           ports:
             - containerPort: 8080
-    volumes:
-        - name: config-volume
-          configMap:
-            name: my-app-config
+    
