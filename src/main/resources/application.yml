@@ -20,7 +20,7 @@ resilience4j.thread-pool-bulkhead:
 resilience4j.timelimiter:
   configs:
     default:
-      timeoutDuration: 30s
+      timeoutDuration: 100s
       cancelRunningFuture: true
 
 
