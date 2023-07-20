@@ -19,3 +19,7 @@ spec:
           image: gcr.io/PROJECT_ID/IMAGE:TAG
           ports:
             - containerPort: 8080
+    volumes:
+        - name: config-volume
+          configMap:
+            name: my-app-config
