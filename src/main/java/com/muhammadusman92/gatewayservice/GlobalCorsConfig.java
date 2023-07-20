@@ -35,7 +35,7 @@ public class GlobalCorsConfig {
     @Bean
     public GlobalFilter customCorsFilter() {
         return (exchange, chain) -> {
-            exchange.getResponse().getHeaders().set("Access-Control-Allow-Origin", "http://34.27.132.75:3000");
+            exchange.getResponse().getHeaders().set("Access-Control-Allow-Origin", "*");
             exchange.getResponse().getHeaders().set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
             exchange.getResponse().getHeaders().set("Access-Control-Allow-Headers", "Content-Type");
             exchange.getResponse().getHeaders().set("Access-Control-Max-Age", "3600");
