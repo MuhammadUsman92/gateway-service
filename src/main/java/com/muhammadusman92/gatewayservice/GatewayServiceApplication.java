@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,21 +21,12 @@ import java.util.stream.Collectors;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableAspectJAutoProxy(proxyTargetClass=true)
-@EnableWebMvc
-public class GatewayServiceApplication implements WebMvcConfigurer {
+public class GatewayServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayServiceApplication.class, args);
 	}
- @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**") // Adjust the path pattern to match your API endpoints
-                .allowedOrigins("http://34.27.132.75:3000")
-                .allowedMethods("GET", "POST", "OPTIONS") // Add other HTTP methods as needed
-                .allowedHeaders("Content-Type")
-                .allowCredentials(false)
-                .maxAge(3600);
-    }
+
 	@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate(){
