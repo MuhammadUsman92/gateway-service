@@ -22,17 +22,10 @@ resilience4j.timelimiter:
     default:
       timeoutDuration: 30s
       cancelRunningFuture: true
+
 spring:
   cloud:
     gateway:
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
-      routes:
-        - id: portalModule
+        add-to-simple-url-handler-mapping: true
 
