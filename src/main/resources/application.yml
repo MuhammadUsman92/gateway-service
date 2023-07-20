@@ -22,16 +22,13 @@ resilience4j.timelimiter:
     default:
       timeoutDuration: 30s
       cancelRunningFuture: true
-spring:
-  cloud:
-    gateway:
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
-      globalcors:
-          cors-configurations:
-             '[/**]':
-             allowed-origins: "*"
-             allowed-methods: "*"
-             allowed-headers: "*"
-             allow-credentials: true
+gateway:
+  default-filters:
+    - DedupeResponseHeader=Access-Control-Allow-Origin
+  globalcors:
+    cors-configurations:
+      '[/**]':
+        allowedOrigins: "*"
+        allowedMethods: "*"
+        allowedHeaders: "*"
 
