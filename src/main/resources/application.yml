@@ -23,6 +23,5 @@ resilience4j.timelimiter:
       timeoutDuration: 30s
       cancelRunningFuture: true
 
-spring.cloud.gateway.globalcors.add-to-simple-url-handler-mapping=true
 
 
