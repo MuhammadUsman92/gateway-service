@@ -19,11 +19,3 @@ spec:
           image: gcr.io/PROJECT_ID/IMAGE:TAG
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: config-volume
-              mountPath: /app/config # Mount path for your application.properties file
-      volumes:
-        - name: config-volume
-          configMap:
-            name: my-app-config
-    
