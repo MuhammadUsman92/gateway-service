@@ -11,7 +11,7 @@ env:
   GKE_ZONE: us-central1-c   # TODO: update to cluster zone
   DEPLOYMENT_NAME: cloud-gateway-app # TODO: update to deployment name
   IMAGE: cloud-gateway-app-image
-  TAG: 1.0.2
+  TAG: 1.0.1
 jobs:
   setup-build-publish-deploy:
     name: Setup Build Publish Deploy
