@@ -6,6 +6,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsConfigurationSource;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import reactor.core.publisher.Mono;
+import java.util.Collections; // Add this import
+import java.util.Arrays; // Add this import
 
 @Configuration
 public class GlobalCorsConfig {
